@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="@dimen/counter_size"
+    android:layout_width="@dimen/counter_size">
+    <solid android:color="@color/colorCounter" />
+
+    <corners
+        android:bottomRightRadius="@dimen/counter_radius"
+        android:bottomLeftRadius="@dimen/counter_radius"
+        android:topLeftRadius="@dimen/counter_radius"
+        android:topRightRadius="@dimen/counter_radius"/>
+</shape>

@@ -13,8 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import br.com.glmiyamoto.vendasdemo.views.NavigationMenuPresenter;
+
+public class MainActivity extends AppCompatActivity {
+
+    private NavigationMenuPresenter mNavMenuPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavMenuPresenter = new NavigationMenuPresenter(this, navigationView);
     }
 
     @Override
@@ -41,32 +44,5 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_my_sales) {
-
-        } else if (id == R.id.nav_my_products) {
-
-        } else if (id == R.id.nav_affiliates) {
-
-        } else if (id == R.id.nav_messages) {
-
-        } else if (id == R.id.nav_notifications) {
-
-        } else if (id == R.id.nav_my_account) {
-
-        } else if (id == R.id.nav_about_apps) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }

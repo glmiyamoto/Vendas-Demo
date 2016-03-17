@@ -1,4 +1,4 @@
-package br.com.glmiyamoto.vendasdemo.views;
+package br.com.glmiyamoto.vendasdemo.views.navigation;
 
 import android.content.Context;
 import android.graphics.Bitmap;

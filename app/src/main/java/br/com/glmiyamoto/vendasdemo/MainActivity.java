@@ -10,7 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import br.com.glmiyamoto.vendasdemo.views.NavigationMenuPresenter;
+import br.com.glmiyamoto.vendasdemo.views.navigation.NavigationMenuPresenter;
 import br.com.glmiyamoto.vendasdemo.views.sales.MySalesFragment;
 
 public class MainActivity extends AppCompatActivity {

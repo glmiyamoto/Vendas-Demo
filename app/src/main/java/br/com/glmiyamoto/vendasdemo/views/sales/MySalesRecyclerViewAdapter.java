@@ -1,7 +1,7 @@
 package br.com.glmiyamoto.vendasdemo.views.sales;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +12,11 @@ import android.widget.TextView;
 import br.com.glmiyamoto.vendasdemo.R;
 import br.com.glmiyamoto.vendasdemo.model.Item;
 
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecyclerViewAdapter.ViewHolder> {
 
@@ -35,19 +39,36 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Item item = mValues.get(position);
         holder.mItem = item;
-        if (position % 2 == 1) {
-            holder.mView.setBackgroundColor(mContext.getResources().getColor(R.color.colorItemLineAlt));
+
+        // Set row color
+        if (position % 2 == 0) {
+            holder.mView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorItemLine));
+        } else {
+            holder.mView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorItemLineAlt));
         }
+
+        // Set Item's title
         holder.mTitleView.setText(item.getName());
-        holder.mIdView.setText("id " + item.getId());
-//        holder.mRegDateView.setText(mValues.get(position).getRegisteredDate());
-        holder.mValueView.setText(String.valueOf(item.getValue()));
-        if (item.isFlag()) {
+
+        // Set Item's id
+        final String idFormat = mContext.getResources().getString(R.string.sales_id_format);
+        holder.mIdView.setText(String.format(idFormat, item.getId()));
+
+        // Set Item's registered date
+        final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        holder.mRegDateView.setText(dateFormat.format(item.getRegisteredDate()));
+
+        // Set Item's value
+        final NumberFormat numFromat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        holder.mValueView.setText(numFromat.format(item.getValue()));
+
+        // Set Item's alert
+        if (item.isAlert()) {
             holder.mAlertView.setVisibility(View.VISIBLE);
-            holder.mLineView.setBackgroundColor(mContext.getResources().getColor(R.color.colorSideLineBlue));
+            holder.mLineView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorSideLineBlue));
         } else {
             holder.mAlertView.setVisibility(View.INVISIBLE);
-            holder.mLineView.setBackgroundColor(mContext.getResources().getColor(R.color.colorSideLineGray));
+            holder.mLineView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorSideLineGray));
         }
     }
 

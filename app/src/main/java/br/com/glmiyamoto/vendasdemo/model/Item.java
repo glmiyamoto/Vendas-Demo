@@ -10,7 +10,7 @@ public class Item {
     private String mName;
     private float mValue;
     private Date mRegisteredDate;
-    private boolean mFlag;
+    private boolean mAlert;
 
     public int getId() {
         return mId;
@@ -44,11 +44,11 @@ public class Item {
         mRegisteredDate = registeredDate;
     }
 
-    public boolean isFlag() {
-        return mFlag;
+    public boolean isAlert() {
+        return mAlert;
     }
 
-    public void setFlag(final boolean flag) {
-        mFlag = flag;
+    public void setAlert(final boolean alert) {
+        mAlert = alert;
     }
 }

@@ -25,4 +25,5 @@
     <dimen name="counter_padding_horizontal">8dp</dimen>
     <dimen name="counter_padding_vertical">4dp</dimen>
     <dimen name="counter_text_size">12.5dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

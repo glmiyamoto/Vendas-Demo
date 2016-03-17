@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#d04f2a</color>
+    <color name="colorPrimaryDark">#d04f2a</color>
+    <color name="colorAccent">#e7ad45</color>
 
     <color name="colorCounter">#e7ad45</color>
 
     <color name="colorNavMenuItemDisabled">#f4f4f4</color>
+
+    <color name="colorItemLineAlt">#f4f4f4</color>
+
+    <color name="colorSideLineGray">#535353</color>
+    <color name="colorSideLineBlue">#4982c5</color>
 </resources>

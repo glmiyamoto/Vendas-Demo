@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="101dp"
-              android:paddingLeft="16dp">
+              android:layout_height="@dimen/sales_item_height"
+              android:paddingLeft="@dimen/sales_item_padding_left">
 
     <LinearLayout
         android:layout_width="0dip"
@@ -11,35 +11,38 @@
         android:orientation="vertical"
         android:layout_weight="0.6"
         android:gravity="center_vertical"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:paddingTop="@dimen/sales_item_padding_vertical"
+        android:paddingBottom="@dimen/sales_item_padding_vertical">
 
         <TextView
             android:id="@+id/tv_sales_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="2"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:text="Como decorar uma festa infantil maravilhosa"/>
+            style="@style/AppTheme.Sales.Title"
+            android:text="Como decorar uma festa infantil maravilhosa com muitas cores variadas para alegrar a festa."/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/sales_item_text_margin"
+            android:gravity="center_vertical">
             <TextView
                 android:id="@+id/tv_sales_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/AppTheme.Sales.Text"
                 android:text="id 30294080"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/AppTheme.Sales.Separator"
                 android:text="@string/sales_text_separator"/>
             <TextView
                 android:id="@+id/tv_sales_reg_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/AppTheme.Sales.Text"
                 android:text="11/01/2016"/>
 
         </LinearLayout>
@@ -50,10 +53,10 @@
         android:layout_width="0dip"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="0.3"
-        android:paddingRight="11dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:layout_weight="0.25"
+        android:paddingRight="@dimen/sales_item_padding_right"
+        android:paddingTop="@dimen/sales_item_padding_vertical"
+        android:paddingBottom="@dimen/sales_item_padding_vertical">
 
         <ImageView
             android:id="@+id/iv_sales_alert"
@@ -71,16 +74,15 @@
             android:id="@+id/tv_sales_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
-            android:singleLine="true"
-            android:ellipsize="none"
+            android:layout_gravity="right"
+            style="@style/AppTheme.Sales.Value"
             android:text="R$ 1.035,00"/>
 
     </LinearLayout>
 
     <View
         android:id="@+id/vw_line"
-        android:layout_width="5dp"
+        android:layout_width="@dimen/sales_item_border_size"
         android:layout_height="match_parent"
         android:background="@color/colorSideLineGray"/>
 

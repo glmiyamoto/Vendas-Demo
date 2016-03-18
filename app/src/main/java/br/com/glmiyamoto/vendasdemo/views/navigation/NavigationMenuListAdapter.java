@@ -2,6 +2,9 @@ package br.com.glmiyamoto.vendasdemo.views.navigation;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +52,15 @@ public class NavigationMenuListAdapter extends BaseAdapter {
             holder.Counter.setText(item.getCounter());
             holder.Counter.setVisibility(View.VISIBLE);
         }
-        view.setEnabled(item.isEnabled());
+        if (item.isEnabled()) {
+            final TypedValue outValue = new TypedValue();
+            mContext.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
+            view.setBackgroundResource(outValue.resourceId);
+            view.setEnabled(true);
+        } else {
+            view.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorItemLineAlt));
+            view.setEnabled(false);
+        }
 
         return view;
     }

@@ -14,28 +14,19 @@
         android:src="@drawable/ico_mensagens" />
 
     <TextView
+        style="@style/AppTheme.Menu.Text"
         android:id="@+id/tv_nav_menu_item_title"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_gravity="center_vertical"
         android:paddingLeft="@dimen/nav_menu_item_title_pad_left"
-        android:text="Mensagens"
-        android:textSize="@dimen/nav_menu_item_title_text_size" />
+        android:text="Mensagens" />
 
     <TextView
+        style="@style/AppTheme.Counter"
         android:id="@+id/tv_nav_menu_item_counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/bg_counter"
-        android:textColor="@android:color/white"
-        android:paddingLeft="@dimen/counter_padding_horizontal"
-        android:paddingRight="@dimen/counter_padding_horizontal"
-        android:paddingTop="@dimen/counter_padding_vertical"
-        android:paddingBottom="@dimen/counter_padding_vertical"
-        android:textSize="@dimen/counter_text_size"
-        android:textStyle="normal|bold"
         android:text="+50" />
 
 </LinearLayout>

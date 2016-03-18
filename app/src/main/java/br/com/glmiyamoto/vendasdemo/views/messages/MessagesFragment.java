@@ -51,10 +51,12 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_my_sales, container, false);
+        final Context context = view.getContext();
+        final int padding = context.getResources().getDimensionPixelSize(R.dimen.messages_list_padding_horizontal);
+        view.setPadding(padding, 0, padding, 0);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
-            final Context context = view.getContext();
             final RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -63,7 +65,7 @@ public class MessagesFragment extends Fragment {
             }
 
             final List<Message> messages = new ArrayList<Message>();
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 18; i++) {
                 final Message message = new Message();
                 messages.add(message);
             }

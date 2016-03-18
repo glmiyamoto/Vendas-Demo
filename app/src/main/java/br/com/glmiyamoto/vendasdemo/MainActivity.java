@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //final Fragment newFragment = new MySalesFragment();
         final Fragment newFragment = new MessagesFragment();
         final Bundle args = new Bundle();
-        args.putInt(MessagesFragment.ARG_COLUMN_COUNT, 3);
+        args.putInt(MessagesFragment.ARG_COLUMN_COUNT, 4);
         newFragment.setArguments(args);
 
         final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

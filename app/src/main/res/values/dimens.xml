@@ -31,7 +31,9 @@
     <dimen name="sales_item_separator_size">8dp</dimen>
     <dimen name="sales_item_border_size">5dp</dimen>
 
+    <dimen name="messages_list_padding_horizontal">16dp</dimen>
     <dimen name="messages_item_height">126.5dp</dimen>
+    <dimen name="messages_text_margin">4dp</dimen>
 
     <dimen name="counter_size">8dp</dimen>
     <dimen name="counter_radius">2dp</dimen>

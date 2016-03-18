@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+               android:orientation="vertical"
+               android:layout_width="wrap_content"
+               android:layout_height="@dimen/messages_item_height"
+               android:gravity="center"
+               android:padding="11.75dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_message_user_photo"
+            android:layout_width="64.5dp"
+            android:layout_height="64.5dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/photo01"/>
+
+        <ImageView
+            android:id="@+id/iv_message_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/iv_message_user_photo"
+            android:layout_alignTop="@+id/iv_message_user_photo"
+            android:src="@drawable/ico_alert"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_message_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="12dp"
+        android:textColor="#919191"
+        android:text="Gustavo Miyamoto"/>
+</LinearLayout>

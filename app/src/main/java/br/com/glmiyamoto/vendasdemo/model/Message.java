@@ -11,7 +11,7 @@ public class Message implements Parcelable {
     private int mOrigUserId;
     private int mDestUserId;
     private String mText;
-    private boolean mFlag;
+    private boolean mAlert;
 
     @Override
     public int describeContents() {
@@ -24,7 +24,7 @@ public class Message implements Parcelable {
         out.writeInt(mOrigUserId);
         out.writeInt(mDestUserId);
         out.writeString(mText);
-        out.writeInt(mFlag ? 1 : 0);
+        out.writeInt(mAlert ? 1 : 0);
     }
 
     public static final Parcelable.Creator<Message> CREATOR = new Parcelable.Creator<Message>() {
@@ -42,7 +42,10 @@ public class Message implements Parcelable {
         mOrigUserId = in.readInt();
         mDestUserId = in.readInt();
         mText = in.readString();
-        mFlag = in.readInt() == 1;
+        mAlert = in.readInt() == 1;
+    }
+
+    public Message() {
     }
 
     public int getId() {
@@ -77,11 +80,11 @@ public class Message implements Parcelable {
         mText = text;
     }
 
-    public boolean isFlag() {
-        return mFlag;
+    public boolean isAlert() {
+        return mAlert;
     }
 
-    public void setFlag(final boolean flag) {
-        mFlag = flag;
+    public void setAlert(final boolean alert) {
+        mAlert = alert;
     }
 }

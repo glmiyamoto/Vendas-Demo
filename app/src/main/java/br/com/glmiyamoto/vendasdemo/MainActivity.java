@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import br.com.glmiyamoto.vendasdemo.views.messages.MessagesFragment;
 import br.com.glmiyamoto.vendasdemo.views.navigation.NavigationMenuPresenter;
 import br.com.glmiyamoto.vendasdemo.views.sales.MySalesFragment;
 
@@ -33,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavMenuPresenter = new NavigationMenuPresenter(this, navigationView);
 
-        final Fragment newFragment = new MySalesFragment();
+        //final Fragment newFragment = new MySalesFragment();
+        final Fragment newFragment = new MessagesFragment();
+        final Bundle args = new Bundle();
+        args.putInt(MessagesFragment.ARG_COLUMN_COUNT, 3);
+        newFragment.setArguments(args);
+
         final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, newFragment);
         transaction.addToBackStack(null);

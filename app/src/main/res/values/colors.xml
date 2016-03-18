@@ -13,4 +13,10 @@
 
     <color name="colorSideLineGray">#535353</color>
     <color name="colorSideLineBlue">#4982c5</color>
+
+    <color name="colorSalesTitle">#535353</color>
+    <color name="colorSalesText">#919191</color>
+    <color name="colorSalesTextSeparator">#4982c5</color>
+    <color name="colorSalesValue">#4982c5</color>
+
 </resources>

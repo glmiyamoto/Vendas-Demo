@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.RecyclerView
     android:id="@+id/list"
-    android:name="br.com.glmiyamoto.vendasdemo.views.sales.MySales2Fragment"
+    android:name="br.com.glmiyamoto.vendasdemo.views.sales.MySalesFragment"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

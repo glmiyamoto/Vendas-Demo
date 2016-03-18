@@ -13,5 +13,54 @@
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="AppTheme.Sales" />
+
+    <style name="AppTheme.Sales.Title">
+        <item name="android:textSize">@dimen/sales_item_title_size</item>
+        <item name="android:textColor">@color/colorSalesTitle</item>
+        <item name="android:lines">2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">normal|bold</item>
+    </style>
+
+    <style name="AppTheme.Sales.Text">
+        <item name="android:textColor">@color/colorSalesText</item>
+        <item name="android:textSize">@dimen/sales_item_text_size</item>
+    </style>
+
+    <style name="AppTheme.Sales.Separator">
+        <item name="android:paddingLeft">@dimen/sales_item_separator_padding</item>
+        <item name="android:paddingRight">@dimen/sales_item_separator_padding</item>
+        <item name="android:textSize">@dimen/sales_item_separator_size</item>
+        <item name="android:textColor">@color/colorSalesTextSeparator</item>
+    </style>
+
+    <style name="AppTheme.Sales.Value">
+        <item name="android:textColor">@color/colorSalesValue</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="AppTheme.Menu"/>
+
+    <style name="AppTheme.Menu.Text">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/nav_menu_item_title_text_size</item>
+    </style>
+
+    <style name="AppTheme.Counter">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@drawable/bg_counter</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">@dimen/counter_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/counter_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/counter_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/counter_padding_vertical</item>
+        <item name="android:textSize">@dimen/counter_text_size</item>
+        <item name="android:textStyle">normal|bold</item>
+    </style>
 
 </resources>

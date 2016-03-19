@@ -5,7 +5,7 @@ import br.com.glmiyamoto.vendasdemo.R;
 /**
  * Created by Gustavo-VAIO on 2016/03/15.
  */
-public enum MenuItem {
+public enum EMenuItem {
     MY_SALES(R.drawable.ico_minhas_vendas, R.string.menu_my_sales, null, true),
     MY_PRODUCTS(R.drawable.ico_meus_produtos, R.string.menu_my_products, null, false),
     AFFILIATES(R.drawable.ico_afiliados, R.string.menu_affiliates, "121", false),
@@ -19,7 +19,7 @@ public enum MenuItem {
     private String mCounter;
     private boolean mEnabled;
 
-    MenuItem(final int iconResId, final int titleResId, final String counter, final boolean enabled) {
+    EMenuItem(final int iconResId, final int titleResId, final String counter, final boolean enabled) {
         mIconResId = iconResId;
         mTitleResId = titleResId;
         mCounter = counter;

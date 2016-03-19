@@ -14,16 +14,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.glmiyamoto.vendasdemo.R;
+import br.com.glmiyamoto.vendasdemo.enums.EFragmentType;
 import br.com.glmiyamoto.vendasdemo.model.Message;
 import br.com.glmiyamoto.vendasdemo.model.User;
+import br.com.glmiyamoto.vendasdemo.views.IFragment;
+import br.com.glmiyamoto.vendasdemo.views.IFragmentListener;
 
-public class MessagesFragment extends Fragment {
+public class MessagesFragment extends Fragment implements IFragment {
 
     public static final String ARG_USER = "user";
     public static final String ARG_COLUMN_COUNT = "column-count";
 
     private User mUser;
     private int mColumnCount = 1;
+
+    private IFragmentListener mListener;
 
     public MessagesFragment() {
     }
@@ -50,14 +55,13 @@ public class MessagesFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_my_sales, container, false);
-        final Context context = view.getContext();
-        final int padding = context.getResources().getDimensionPixelSize(R.dimen.messages_list_padding_horizontal);
-        view.setPadding(padding, 0, padding, 0);
+        final View view = inflater.inflate(R.layout.fragment_messages, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            final RecyclerView recyclerView = (RecyclerView) view;
+        final View messagesListView = view.findViewById(R.id.rv_messages_list);
+        if (messagesListView instanceof RecyclerView) {
+            final Context context = view.getContext();
+            final RecyclerView recyclerView = (RecyclerView) messagesListView;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             } else {
@@ -73,5 +77,20 @@ public class MessagesFragment extends Fragment {
             recyclerView.setAdapter(new MessagesRecyclerViewAdapter(getContext(), messages));
         }
         return view;
+    }
+
+    @Override
+    public EFragmentType getFragmentType() {
+        return EFragmentType.MESSAGES;
+    }
+
+    @Override
+    public void setFragmentListener(IFragmentListener listener) {
+        mListener = listener;
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        return true;
     }
 }

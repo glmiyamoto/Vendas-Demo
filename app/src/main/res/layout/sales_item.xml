@@ -15,10 +15,10 @@
         android:paddingBottom="@dimen/sales_item_padding_vertical">
 
         <TextView
+            style="@style/AppTheme.Sales.Title"
             android:id="@+id/tv_sales_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.Sales.Title"
             android:text="Como decorar uma festa infantil maravilhosa com muitas cores variadas para alegrar a festa."/>
 
         <LinearLayout
@@ -28,10 +28,10 @@
             android:paddingTop="@dimen/sales_item_text_margin"
             android:gravity="center_vertical">
             <TextView
+                style="@style/AppTheme.Text"
                 android:id="@+id/tv_sales_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.Sales.Text"
                 android:text="id 30294080"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -39,10 +39,10 @@
                 style="@style/AppTheme.Sales.Separator"
                 android:text="@string/sales_text_separator"/>
             <TextView
+                style="@style/AppTheme.Text"
                 android:id="@+id/tv_sales_reg_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.Sales.Text"
                 android:text="11/01/2016"/>
 
         </LinearLayout>
@@ -54,7 +54,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="0.25"
-        android:paddingRight="@dimen/sales_item_padding_right"
         android:paddingTop="@dimen/sales_item_padding_vertical"
         android:paddingBottom="@dimen/sales_item_padding_vertical">
 
@@ -71,19 +70,18 @@
             android:layout_weight="1"/>
 
         <TextView
+            style="@style/AppTheme.Sales.Value"
             android:id="@+id/tv_sales_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            style="@style/AppTheme.Sales.Value"
             android:text="R$ 1.035,00"/>
 
     </LinearLayout>
 
     <View
+        style="@style/AppTheme.Border"
         android:id="@+id/vw_line"
-        android:layout_width="@dimen/sales_item_border_size"
-        android:layout_height="match_parent"
-        android:background="@color/colorSideLineGray"/>
+        android:background="@color/colorSalesSideLineGray"/>
 
 </LinearLayout>

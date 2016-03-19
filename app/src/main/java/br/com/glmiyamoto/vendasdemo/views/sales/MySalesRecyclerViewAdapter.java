@@ -65,10 +65,10 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
         // Set Item's alert
         if (item.isAlert()) {
             holder.mAlertView.setVisibility(View.VISIBLE);
-            holder.mLineView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorSideLineBlue));
+            holder.mLineView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorSalesSideLineBlue));
         } else {
             holder.mAlertView.setVisibility(View.INVISIBLE);
-            holder.mLineView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorSideLineGray));
+            holder.mLineView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorSalesSideLineGray));
         }
     }
 

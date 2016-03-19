@@ -14,11 +14,12 @@
         android:src="@drawable/ico_mensagens" />
 
     <TextView
-        style="@style/AppTheme.Menu.Text"
+        style="@style/AppTheme.Title"
         android:id="@+id/tv_nav_menu_item_title"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_gravity="center_vertical"
         android:paddingLeft="@dimen/nav_menu_item_title_pad_left"
         android:text="Mensagens" />
 

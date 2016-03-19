@@ -14,13 +14,18 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.glmiyamoto.vendasdemo.R;
+import br.com.glmiyamoto.vendasdemo.enums.EFragmentType;
 import br.com.glmiyamoto.vendasdemo.model.Item;
 import br.com.glmiyamoto.vendasdemo.model.User;
+import br.com.glmiyamoto.vendasdemo.views.IFragment;
+import br.com.glmiyamoto.vendasdemo.views.IFragmentListener;
 
-public class MySalesFragment extends Fragment {
+public class MySalesFragment extends Fragment implements IFragment {
 
     private static final String ARG_USER = "user";
     private User mUser;
+
+    private IFragmentListener mListener;
 
     public MySalesFragment() {
     }
@@ -66,5 +71,20 @@ public class MySalesFragment extends Fragment {
             recyclerView.setAdapter(new MySalesRecyclerViewAdapter(getContext(), items));
         }
         return view;
+    }
+
+    @Override
+    public EFragmentType getFragmentType() {
+        return EFragmentType.MY_SALES;
+    }
+
+    @Override
+    public void setFragmentListener(IFragmentListener listener) {
+        mListener = listener;
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        return true;
     }
 }

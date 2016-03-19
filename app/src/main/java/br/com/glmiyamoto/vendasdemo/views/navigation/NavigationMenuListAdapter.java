@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.com.glmiyamoto.vendasdemo.R;
-import br.com.glmiyamoto.vendasdemo.enums.MenuItem;
+import br.com.glmiyamoto.vendasdemo.enums.EMenuItem;
 
 /**
  * Created by Gustavo on 2016/03/15.
@@ -30,7 +30,7 @@ public class NavigationMenuListAdapter extends BaseAdapter {
     public View getView(final int position, final View convertView,
                         final ViewGroup parent) {
 
-        final MenuItem item = getItem(position);
+        final EMenuItem item = getItem(position);
 
         View view = convertView;
         final ViewHolder holder;
@@ -67,17 +67,17 @@ public class NavigationMenuListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return MenuItem.values().length;
+        return EMenuItem.values().length;
     }
 
     @Override
-    public MenuItem getItem(int position) {
-        return MenuItem.values()[position];
+    public EMenuItem getItem(int position) {
+        return EMenuItem.values()[position];
     }
 
     @Override
     public long getItemId(int position) {
-        return MenuItem.values()[position].ordinal();
+        return EMenuItem.values()[position].ordinal();
     }
 
     public class ViewHolder {

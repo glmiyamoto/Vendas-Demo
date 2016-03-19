@@ -9,30 +9,8 @@
     tools:showIn="@layout/app_bar_main"
     tools:context="br.com.glmiyamoto.vendasdemo.MainActivity">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <fragment
-            android:name="br.com.glmiyamoto.vendasdemo.views.profiles.MyBalanceFragment"
-            android:layout_width="match_parent"
-            android:layout_height="123.5dp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#919191"/>
-        <fragment
-            android:name="br.com.glmiyamoto.vendasdemo.views.profiles.MyProfileMessagesFragment"
-            android:layout_width="match_parent"
-            android:layout_height="175.5dp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#919191"/>
-        <fragment
-            android:name="br.com.glmiyamoto.vendasdemo.views.sales.MySalesFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 </RelativeLayout>

@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import br.com.glmiyamoto.vendasdemo.R;
-import br.com.glmiyamoto.vendasdemo.enums.MenuItem;
+import br.com.glmiyamoto.vendasdemo.enums.EMenuItem;
 import br.com.glmiyamoto.vendasdemo.utils.ImageUtil;
 
 /**
@@ -30,7 +30,7 @@ public class NavigationMenuPresenter {
         public void onItemClick(final AdapterView<?> parent, final View view,
                                 final int position, final long id) {
             if (mListener != null) {
-                final MenuItem selectedItem = mAdapter.getItem(position);
+                final EMenuItem selectedItem = mAdapter.getItem(position);
                 mListener.OnNavigationMenuItemClick(selectedItem);
             }
         }

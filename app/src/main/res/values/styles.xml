@@ -13,21 +13,41 @@
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    
+
+    <style name="AppTheme.Title">
+        <item name="android:textSize">@dimen/app_title_size</item>
+        <item name="android:textColor">@color/colorTitle</item>
+    </style>
+
+    <style name="AppTheme.Text">
+        <item name="android:textSize">@dimen/app_text_size</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="AppTheme.Border">
+        <item name="android:layout_width">@dimen/app_border_size</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/app_border_margin</item>
+    </style>
+
+    <style name="AppTheme.SeparatorLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/app_separator_line_size</item>
+        <item name="android:background">@color/colorSeparatorLine</item>
+    </style>
+
+    <style name="AppTheme.UserPhoto">
+        <item name="android:layout_width">@dimen/app_user_photo_size</item>
+        <item name="android:layout_height">@dimen/app_user_photo_size</item>
+    </style>
+
     <style name="AppTheme.Sales" />
 
-    <style name="AppTheme.Sales.Title">
-        <item name="android:textSize">@dimen/sales_item_title_size</item>
-        <item name="android:textColor">@color/colorSalesTitle</item>
+    <style name="AppTheme.Sales.Title" parent="AppTheme.Title">
         <item name="android:lines">2</item>
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
         <item name="android:textStyle">normal|bold</item>
-    </style>
-
-    <style name="AppTheme.Sales.Text">
-        <item name="android:textColor">@color/colorSalesText</item>
-        <item name="android:textSize">@dimen/sales_item_text_size</item>
     </style>
 
     <style name="AppTheme.Sales.Separator">
@@ -37,18 +57,19 @@
         <item name="android:textColor">@color/colorSalesTextSeparator</item>
     </style>
 
-    <style name="AppTheme.Sales.Value">
+    <style name="AppTheme.Sales.Value" parent="AppTheme.Title">
         <item name="android:textColor">@color/colorSalesValue</item>
         <item name="android:textStyle">normal|bold</item>
         <item name="android:ellipsize">none</item>
         <item name="android:singleLine">true</item>
     </style>
 
-    <style name="AppTheme.Menu"/>
+    <style name="AppTheme.Balance"/>
 
-    <style name="AppTheme.Menu.Text">
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/nav_menu_item_title_text_size</item>
+    <style name="AppTheme.Balance.Value">
+        <item name="android:textColor">@color/colorProfileBalanceValue</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:textSize">@dimen/my_profile_balance_value_size</item>
     </style>
 
     <style name="AppTheme.Counter">

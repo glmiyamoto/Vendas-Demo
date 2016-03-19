@@ -21,7 +21,7 @@
     <string name="messages_title">Mensagens</string>
     <string name="messages_recent">Mensagens recentes</string>
 
-    <string name="my_sales_title">Miinas vendas</string>
+    <string name="my_sales_title">Minhas vendas</string>
     <string name="sales_id_format">id %1$d</string>
     <string name="sales_text_separator">&#9679;</string>
 </resources>

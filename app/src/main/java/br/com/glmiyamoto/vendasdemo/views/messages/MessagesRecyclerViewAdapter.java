@@ -40,7 +40,8 @@ public class MessagesRecyclerViewAdapter extends RecyclerView.Adapter<MessagesRe
                 .inflate(R.layout.messages_item, parent, false);
         RecyclerView recyclerView = (RecyclerView) parent;
         if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
-            view.getLayoutParams().width = 176;
+            view.getLayoutParams().width = parent.getContext().getResources()
+                    .getDimensionPixelSize(R.dimen.messages_item_width);
         }
 
         return new ViewHolder(view);
@@ -52,7 +53,8 @@ public class MessagesRecyclerViewAdapter extends RecyclerView.Adapter<MessagesRe
         holder.mMessage = message;
 
         // Set Message's contact photo
-        holder.mUserPhotoView.setImageDrawable(ImageUtil.createRoundedBitmap(mContext.getResources(), R.drawable.photo01));
+        holder.mUserPhotoView.setImageDrawable(ImageUtil.
+                createRoundedBitmap(mContext.getResources(), R.drawable.photo01));
 
         // Set Message's contact name
         holder.mUserNameView.setText("User" + position);//message.getDestUserId());

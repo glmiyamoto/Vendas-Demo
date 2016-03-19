@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/my_profile_balance_height"
+              android:orientation="horizontal"
+              android:gravity="center_vertical"
+              android:paddingLeft="@dimen/my_profile_balance_pad_left"
+              android:background="@color/colorProfileBalanceBackground"
+              tools:context=".views.profiles.MyProfileFragment">
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            style="@style/AppTheme.Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/balance_desc"/>
+
+        <TextView
+            style="@style/AppTheme.Balance.Value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="R$2.152,23"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ico_lupa"/>
+
+    <View
+        style="@style/AppTheme.Border"
+        android:background="@color/colorProfileBalanceBorder"/>
+
+</LinearLayout>

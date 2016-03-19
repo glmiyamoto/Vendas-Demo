@@ -8,15 +8,26 @@
 
     <color name="colorNavMenuItemDisabled">#f4f4f4</color>
 
+    <color name="colorTitle">#535353</color>
+    <color name="colorText">#919191</color>
+
+    <color name="colorSeparatorLine">#919191</color>
+
+    <color name="colorProfileBalanceBackground">#f4f4f4</color>
+    <color name="colorProfileBalanceValue">#5f498c</color>
+    <color name="colorProfileBalanceBorder">#5f498c</color>
+
+    <color name="colorMessageBackground">#f4f4f4</color>
+    <color name="colorMessageBorder">#e7ad45</color>
+
     <color name="colorItemLine">#ffffff</color>
     <color name="colorItemLineAlt">#f4f4f4</color>
-
-    <color name="colorSideLineGray">#535353</color>
-    <color name="colorSideLineBlue">#4982c5</color>
 
     <color name="colorSalesTitle">#535353</color>
     <color name="colorSalesText">#919191</color>
     <color name="colorSalesTextSeparator">#4982c5</color>
     <color name="colorSalesValue">#4982c5</color>
+    <color name="colorSalesSideLineGray">#535353</color>
+    <color name="colorSalesSideLineBlue">#4982c5</color>
 
 </resources>

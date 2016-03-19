@@ -39,6 +39,10 @@ public class User implements Parcelable {
         mEMail = in.readString();
     }
 
+    public User() {
+
+    }
+
     public int getId() {
         return mId;
     }

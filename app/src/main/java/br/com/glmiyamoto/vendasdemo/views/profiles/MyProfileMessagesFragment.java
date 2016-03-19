@@ -1,10 +1,9 @@
-package br.com.glmiyamoto.vendasdemo.views.messages;
+package br.com.glmiyamoto.vendasdemo.views.profiles;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,23 +15,21 @@ import java.util.List;
 import br.com.glmiyamoto.vendasdemo.R;
 import br.com.glmiyamoto.vendasdemo.model.Message;
 import br.com.glmiyamoto.vendasdemo.model.User;
+import br.com.glmiyamoto.vendasdemo.views.messages.MessagesRecyclerViewAdapter;
 
-public class MessagesFragment extends Fragment {
+public class MyProfileMessagesFragment extends Fragment {
 
     public static final String ARG_USER = "user";
-    public static final String ARG_COLUMN_COUNT = "column-count";
 
     private User mUser;
-    private int mColumnCount = 1;
 
-    public MessagesFragment() {
+    public MyProfileMessagesFragment() {
     }
 
-    public static MessagesFragment newInstance(final User user, final int columnCount) {
-        MessagesFragment fragment = new MessagesFragment();
+    public static MyProfileMessagesFragment newInstance(final User user, final int columnCount) {
+        MyProfileMessagesFragment fragment = new MyProfileMessagesFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_USER, user);
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,26 +40,20 @@ public class MessagesFragment extends Fragment {
 
         if (getArguments() != null) {
             mUser = getArguments().getParcelable(ARG_USER);
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_my_sales, container, false);
+        final View view = inflater.inflate(R.layout.fragment_my_profile_messages, container, false);
         final Context context = view.getContext();
-        final int padding = context.getResources().getDimensionPixelSize(R.dimen.messages_list_padding_horizontal);
-        view.setPadding(padding, 0, padding, 0);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            final RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
+        final View listView = view.findViewById(R.id.list);
+        if (listView instanceof RecyclerView) {
+            final RecyclerView recyclerView = (RecyclerView) listView;
+            recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
 
             final List<Message> messages = new ArrayList<Message>();
             for (int i = 0; i < 18; i++) {

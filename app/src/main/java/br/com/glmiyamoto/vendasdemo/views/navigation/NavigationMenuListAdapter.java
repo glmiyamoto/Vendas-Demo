@@ -1,14 +1,14 @@
 package br.com.glmiyamoto.vendasdemo.views.navigation;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import br.com.glmiyamoto.vendasdemo.R;
 import br.com.glmiyamoto.vendasdemo.enums.MenuItem;
@@ -33,33 +33,33 @@ public class NavigationMenuListAdapter extends BaseAdapter {
         final MenuItem item = getItem(position);
 
         View view = convertView;
-        final NavigationMenuItemViewHolder holder;
+        final ViewHolder holder;
         if (view == null) {
             view = mInflater.inflate(R.layout.nav_menu_item, parent, false);
 
-            holder = new NavigationMenuItemViewHolder(view);
+            holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
-            holder = (NavigationMenuItemViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
 
         // Set values in UI
-        holder.Icon.setImageResource(item.getIconResId());
-        holder.Title.setText(item.getTitleResId());
+        holder.mIconView.setImageResource(item.getIconResId());
+        holder.mTitleView.setText(item.getTitleResId());
         if (item.getCounter() == null) {
-            holder.Counter.setVisibility(View.INVISIBLE);
+            holder.mCounterView.setVisibility(View.INVISIBLE);
         } else {
-            holder.Counter.setText(item.getCounter());
-            holder.Counter.setVisibility(View.VISIBLE);
+            holder.mCounterView.setText(item.getCounter());
+            holder.mCounterView.setVisibility(View.VISIBLE);
         }
         if (item.isEnabled()) {
             final TypedValue outValue = new TypedValue();
             mContext.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
-            view.setBackgroundResource(outValue.resourceId);
-            view.setEnabled(true);
+            holder.mView.setBackgroundResource(outValue.resourceId);
+            holder.mView.setEnabled(true);
         } else {
-            view.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorItemLineAlt));
-            view.setEnabled(false);
+            holder.mView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.colorItemLineAlt));
+            holder.mView.setEnabled(false);
         }
 
         return view;
@@ -78,5 +78,19 @@ public class NavigationMenuListAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return MenuItem.values()[position].ordinal();
+    }
+
+    public class ViewHolder {
+        public final View mView;
+        public final ImageView mIconView;
+        public final TextView mTitleView;
+        public final TextView mCounterView;
+
+        public ViewHolder(View view) {
+            mView = view;
+            mIconView = (ImageView) view.findViewById(R.id.iv_nav_menu_item_icon);
+            mTitleView = (TextView) view.findViewById(R.id.tv_nav_menu_item_title);
+            mCounterView = (TextView) view.findViewById(R.id.tv_nav_menu_item_counter);
+        }
     }
 }

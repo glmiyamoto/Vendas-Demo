@@ -18,28 +18,28 @@ import br.com.glmiyamoto.vendasdemo.R;
 import br.com.glmiyamoto.vendasdemo.model.User;
 
 /**
- * Created by Gustavo-VAIO on 2016/03/15.
+ * Created by Gustavo on 2016/03/15.
  */
 public final class ImageUtil {
 
-    private static final float BLUR_BITMAP_SCALE = 0.4f;
+    private static final float BLUR_BITMAP_SCALE = 0.8f;
     private static final float BLUR_RADIUS = 7.5f;
 
     private ImageUtil() {
         // Avoid intance
     }
 
-    public static Bitmap createBluredBitmap(Context context, Bitmap image) {
-        int width = Math.round(image.getWidth() * BLUR_BITMAP_SCALE);
-        int height = Math.round(image.getHeight() * BLUR_BITMAP_SCALE);
+    public static Bitmap createBlurredBitmap(final Context context, final Bitmap image) {
+        final int width = Math.round(image.getWidth() * BLUR_BITMAP_SCALE);
+        final int height = Math.round(image.getHeight() * BLUR_BITMAP_SCALE);
 
-        Bitmap inputBitmap = Bitmap.createScaledBitmap(image, width, height, false);
-        Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap);
+        final Bitmap inputBitmap = Bitmap.createScaledBitmap(image, width, height, false);
+        final Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap);
 
-        RenderScript rs = RenderScript.create(context);
-        ScriptIntrinsicBlur theIntrinsic = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
-        Allocation tmpIn = Allocation.createFromBitmap(rs, inputBitmap);
-        Allocation tmpOut = Allocation.createFromBitmap(rs, outputBitmap);
+        final RenderScript rs = RenderScript.create(context);
+        final ScriptIntrinsicBlur theIntrinsic = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
+        final Allocation tmpIn = Allocation.createFromBitmap(rs, inputBitmap);
+        final Allocation tmpOut = Allocation.createFromBitmap(rs, outputBitmap);
         theIntrinsic.setRadius(BLUR_RADIUS);
         theIntrinsic.setInput(tmpIn);
         theIntrinsic.forEach(tmpOut);
@@ -69,7 +69,7 @@ public final class ImageUtil {
         letterPaint.setTextSize((int) (width * 0.6));
         canvas.drawText(name, width / 2, height / 2 - ((letterPaint.descent() + letterPaint.ascent()) / 2), letterPaint);
 
-        return dst;//bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+        return dst;
     }
 
     public static Drawable createRoundedBitmap(final Resources res, final int imageId) {

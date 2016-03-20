@@ -9,6 +9,7 @@
     <dimen name="nav_header_user_name_size">20dp</dimen>
     <dimen name="nav_header_user_email_size">12.5dp</dimen>
 
+    <dimen name="nav_header_width">320dp</dimen>
     <dimen name="nav_header_height">172dp</dimen>
     <dimen name="nav_header_padding">8dp</dimen>
 

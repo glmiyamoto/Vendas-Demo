@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import br.com.glmiyamoto.vendasdemo.R;
 import br.com.glmiyamoto.vendasdemo.enums.EMenuItem;
+import br.com.glmiyamoto.vendasdemo.model.User;
 
 /**
  * Created by Gustavo on 2016/03/15.
@@ -21,8 +22,11 @@ public class NavigationMenuListAdapter extends BaseAdapter {
     private final Context mContext;
     private final LayoutInflater mInflater;
 
-    public NavigationMenuListAdapter(final Context context) {
+    private final User mUser;
+
+    public NavigationMenuListAdapter(final Context context, final User user) {
         mContext = context;
+        mUser = user;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -49,7 +53,14 @@ public class NavigationMenuListAdapter extends BaseAdapter {
         if (item.getCounter() == null) {
             holder.mCounterView.setVisibility(View.INVISIBLE);
         } else {
-            holder.mCounterView.setText(item.getCounter());
+            switch (item) {
+                case MESSAGES:
+                    holder.mCounterView.setText("+" + mUser.getMessages().size());
+                    break;
+                default:
+                    holder.mCounterView.setText(item.getCounter());
+                    break;
+            }
             holder.mCounterView.setVisibility(View.VISIBLE);
         }
         if (item.isEnabled()) {

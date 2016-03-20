@@ -4,8 +4,13 @@ import android.app.Activity;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
 
 import br.com.glmiyamoto.vendasdemo.MainActivity;
 import br.com.glmiyamoto.vendasdemo.R;
@@ -69,12 +74,16 @@ public class MainActivityPresenter {
         switch (type) {
             case MY_PROFILE:
                 mHolder.mToolbar.setTitle(R.string.my_profile_title);
+                mHolder.mCounter.setVisibility(View.GONE);
                 break;
             case MY_SALES:
                 mHolder.mToolbar.setTitle(R.string.my_sales_title);
+                mHolder.mCounter.setVisibility(View.GONE);
                 break;
             case MESSAGES:
                 mHolder.mToolbar.setTitle(R.string.messages_title);
+                mHolder.mCounter.setVisibility(View.VISIBLE);
+                mHolder.mCounter.setText("+" + mUser.getMessages().size());
                 break;
             default:
                 break;
@@ -89,11 +98,13 @@ public class MainActivityPresenter {
         public final Toolbar mToolbar;
         public final DrawerLayout mDrawer;
         public final NavigationView mNavView;
+        public final TextView mCounter;
 
         public ViewHolder(final Activity activity) {
             mToolbar = (Toolbar) activity.findViewById(R.id.toolbar);
             mDrawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
             mNavView = (NavigationView) activity.findViewById(R.id.nav_view);
+            mCounter = (TextView) activity.findViewById(R.id.tv_counter);
         }
     }
 }

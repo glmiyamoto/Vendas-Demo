@@ -1,6 +1,7 @@
 package br.com.glmiyamoto.vendasdemo;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements IFragmentListener
 
     private IFragment mCurrentFragment;
 
+    private Handler mHandler = new Handler();
+
     private OnNavigationMenuItemClickListener mNavMenuItemClickListener = new OnNavigationMenuItemClickListener() {
         @Override
         public void OnNavigationMenuItemClick(final EMenuItem item) {
@@ -38,6 +41,16 @@ public class MainActivity extends AppCompatActivity implements IFragmentListener
                     break;
                 default:
                     break;
+            }
+
+            final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        drawer.closeDrawer(GravityCompat.START);
+                    }
+                }, 400);
             }
         }
     };
@@ -90,11 +103,6 @@ public class MainActivity extends AppCompatActivity implements IFragmentListener
                     break;
             }
         }
-
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        }
     }
 
     @Override
@@ -108,6 +116,10 @@ public class MainActivity extends AppCompatActivity implements IFragmentListener
     }
 
     public void callFragmentByType(final EFragmentType fragmentsType, final Bundle bundle) {
+        if (mCurrentFragment != null && mCurrentFragment.getFragmentType() == fragmentsType) {
+            return;
+        }
+
         IFragment fragment = (IFragment) this.getSupportFragmentManager().findFragmentByTag(fragmentsType.getTag());
         try {
             if (fragment == null) {

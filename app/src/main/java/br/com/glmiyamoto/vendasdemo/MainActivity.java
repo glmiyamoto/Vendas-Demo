@@ -24,6 +24,24 @@ public class MainActivity extends AppCompatActivity implements IFragmentListener
 
     private IFragment mCurrentFragment;
 
+    private OnNavigationMenuItemClickListener mNavMenuItemClickListener = new OnNavigationMenuItemClickListener() {
+        @Override
+        public void OnNavigationMenuItemClick(final EMenuItem item) {
+            switch (item) {
+                case MY_SALES:
+                    callFragmentByType(EFragmentType.MY_SALES, null);
+                    break;
+                case MESSAGES:
+                    final Bundle args = new Bundle();
+                    args.putInt(MessagesFragment.ARG_COLUMN_COUNT, 4);
+                    callFragmentByType(EFragmentType.MESSAGES, args);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,25 +57,16 @@ public class MainActivity extends AppCompatActivity implements IFragmentListener
 
         final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavMenuPresenter = new NavigationMenuPresenter(this, navigationView);
-        mNavMenuPresenter.setOnNavigationMenuItemClickListener(new OnNavigationMenuItemClickListener() {
-            @Override
-            public void OnNavigationMenuItemClick(final EMenuItem item) {
-                switch (item) {
-                    case MY_SALES:
-                        callFragmentByType(EFragmentType.MY_SALES, null);
-                        break;
-                    case MESSAGES:
-                        final Bundle args = new Bundle();
-                        args.putInt(MessagesFragment.ARG_COLUMN_COUNT, 4);
-                        callFragmentByType(EFragmentType.MESSAGES, null);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
+        mNavMenuPresenter.setOnNavigationMenuItemClickListener(mNavMenuItemClickListener);
+    }
 
-        callFragmentByType(EFragmentType.MY_PROFILE, null);
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mCurrentFragment == null) {
+            callFragmentByType(EFragmentType.MY_PROFILE, null);
+        }
     }
 
     @Override
@@ -123,6 +132,12 @@ public class MainActivity extends AppCompatActivity implements IFragmentListener
 
     @Override
     public void onFragmentCallBack(final EFragmentCallback callback, final EFragmentType type, final Bundle bundle) {
-
+        switch (callback) {
+            case BACK:
+                callFragmentByType(EFragmentType.MY_PROFILE, null);
+                break;
+            default:
+                break;
+        }
     }
 }

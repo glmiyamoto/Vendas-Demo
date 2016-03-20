@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.glmiyamoto.vendasdemo.R;
+import br.com.glmiyamoto.vendasdemo.enums.EFragmentCallback;
 import br.com.glmiyamoto.vendasdemo.enums.EFragmentType;
 import br.com.glmiyamoto.vendasdemo.model.Message;
 import br.com.glmiyamoto.vendasdemo.model.User;
@@ -91,6 +92,7 @@ public class MessagesFragment extends Fragment implements IFragment {
 
     @Override
     public boolean onBackPressed() {
-        return true;
+        mListener.onFragmentCallBack(EFragmentCallback.BACK, getFragmentType(), null);
+        return false;
     }
 }

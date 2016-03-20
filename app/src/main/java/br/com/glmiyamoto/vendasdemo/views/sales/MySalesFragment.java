@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.glmiyamoto.vendasdemo.R;
+import br.com.glmiyamoto.vendasdemo.enums.EFragmentCallback;
 import br.com.glmiyamoto.vendasdemo.enums.EFragmentType;
 import br.com.glmiyamoto.vendasdemo.model.Item;
 import br.com.glmiyamoto.vendasdemo.model.User;
@@ -85,6 +86,7 @@ public class MySalesFragment extends Fragment implements IFragment {
 
     @Override
     public boolean onBackPressed() {
-        return true;
+        mListener.onFragmentCallBack(EFragmentCallback.BACK, getFragmentType(), null);
+        return false;
     }
 }

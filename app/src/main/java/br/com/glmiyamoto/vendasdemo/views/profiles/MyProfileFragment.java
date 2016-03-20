@@ -8,10 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import br.com.glmiyamoto.vendasdemo.R;
 import br.com.glmiyamoto.vendasdemo.enums.EFragmentType;
@@ -64,40 +69,30 @@ public class MyProfileFragment extends Fragment implements IFragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_my_profile, container, false);
 
-        // Set the adapter
+        // Set user balance
+        final TextView tvUserBalance = (TextView) view.findViewById(R.id.tv_user_balance);
+        final NumberFormat numFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        tvUserBalance.setText(numFormat.format(mUser.getBalance()));
+
+        // Set recent message counter
+        final TextView tvMessageCounter = (TextView) view.findViewById(R.id.tv_message_counter);
+        tvMessageCounter.setText("+" + mUser.getMessages().size());
+
+        // Set the message adapter
         final View messagesListView = view.findViewById(R.id.rv_messages_list);
         if (messagesListView instanceof RecyclerView) {
             final RecyclerView recyclerView = (RecyclerView) messagesListView;
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-            final List<Message> messages = new ArrayList<Message>();
-            for (int i = 0; i < 18; i++) {
-                final Message message = new Message();
-                messages.add(message);
-            }
-
-            recyclerView.setAdapter(new MessagesRecyclerViewAdapter(getContext(), messages));
+            recyclerView.setAdapter(new MessagesRecyclerViewAdapter(getContext(), mUser.getMessages()));
         }
 
-        // Set the adapter
+        // Set the sales adapter
         final View mySalesListView = view.findViewById(R.id.rv_my_sales_list);
         if (mySalesListView instanceof RecyclerView) {
             final RecyclerView recyclerView = (RecyclerView) mySalesListView;
             final List<Message> messages = new ArrayList<Message>();
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-            final List<Item> items = new ArrayList<Item>();
-            for (int i = 0; i < 10; i++) {
-                final Item item = new Item();
-                item.setId(i);
-                item.setName("Name " + i);
-                item.setValue(i * 1000);
-                item.setRegisteredDate(new Date());
-                item.setAlert(i % 2 == 1);
-                items.add(item);
-            }
-
-            recyclerView.setAdapter(new MySalesRecyclerViewAdapter(getContext(), items));
+            recyclerView.setAdapter(new MySalesRecyclerViewAdapter(getContext(), mUser.getSales()));
         }
 
         return view;

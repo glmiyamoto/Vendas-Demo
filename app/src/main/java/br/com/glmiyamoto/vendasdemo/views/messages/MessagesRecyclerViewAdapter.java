@@ -53,11 +53,10 @@ public class MessagesRecyclerViewAdapter extends RecyclerView.Adapter<MessagesRe
         holder.mMessage = message;
 
         // Set Message's contact photo
-        holder.mUserPhotoView.setImageDrawable(ImageUtil.
-                createRoundedBitmap(mContext.getResources(), R.drawable.photo01));
+        ImageUtil.setRoundedPhotoByUser(mContext, holder.mUserPhotoView, message.getDestUser());
 
         // Set Message's contact name
-        holder.mUserNameView.setText("User" + position);//message.getDestUserId());
+        holder.mUserNameView.setText(message.getDestUser().getName());
 
         // Set Message's alert
         if (message.isAlert()) {

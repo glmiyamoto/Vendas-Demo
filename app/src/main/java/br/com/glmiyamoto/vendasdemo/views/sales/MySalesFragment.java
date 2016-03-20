@@ -57,19 +57,7 @@ public class MySalesFragment extends Fragment implements IFragment {
             final Context context = view.getContext();
             final RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
-            final List<Item> items = new ArrayList<Item>();
-            for (int i = 0; i < 10; i++) {
-                final Item item = new Item();
-                item.setId(i);
-                item.setName("Name " + i);
-                item.setValue(i * 1000);
-                item.setRegisteredDate(new Date());
-                item.setAlert(i % 2 == 1);
-                items.add(item);
-            }
-
-            recyclerView.setAdapter(new MySalesRecyclerViewAdapter(getContext(), items));
+            recyclerView.setAdapter(new MySalesRecyclerViewAdapter(getContext(), mUser.getSales()));
         }
         return view;
     }

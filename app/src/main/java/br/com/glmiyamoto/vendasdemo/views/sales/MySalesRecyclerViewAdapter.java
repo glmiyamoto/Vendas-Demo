@@ -59,8 +59,8 @@ public class MySalesRecyclerViewAdapter extends RecyclerView.Adapter<MySalesRecy
         holder.mRegDateView.setText(dateFormat.format(item.getRegisteredDate()));
 
         // Set Item's value
-        final NumberFormat numFromat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-        holder.mValueView.setText(numFromat.format(item.getValue()));
+        final NumberFormat numFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        holder.mValueView.setText(numFormat.format(item.getValue()));
 
         // Set Item's alert
         if (item.isAlert()) {

@@ -20,6 +20,7 @@
             android:text="@string/balance_desc"/>
 
         <TextView
+            android:id="@+id/tv_user_balance"
             style="@style/AppTheme.Balance.Value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

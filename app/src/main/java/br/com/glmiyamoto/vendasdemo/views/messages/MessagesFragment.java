@@ -68,14 +68,7 @@ public class MessagesFragment extends Fragment implements IFragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-
-            final List<Message> messages = new ArrayList<Message>();
-            for (int i = 0; i < 18; i++) {
-                final Message message = new Message();
-                messages.add(message);
-            }
-
-            recyclerView.setAdapter(new MessagesRecyclerViewAdapter(getContext(), messages));
+            recyclerView.setAdapter(new MessagesRecyclerViewAdapter(getContext(), mUser.getMessages()));
         }
         return view;
     }

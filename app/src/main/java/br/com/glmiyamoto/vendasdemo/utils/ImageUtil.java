@@ -12,6 +12,10 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v8.renderscript.*;
+import android.widget.ImageView;
+
+import br.com.glmiyamoto.vendasdemo.R;
+import br.com.glmiyamoto.vendasdemo.model.User;
 
 /**
  * Created by Gustavo-VAIO on 2016/03/15.
@@ -87,5 +91,14 @@ public final class ImageUtil {
         roundedBitmapDrawable.setCornerRadius(dst.getWidth() / 2);
         roundedBitmapDrawable.setAntiAlias(true);
         return roundedBitmapDrawable;
+    }
+
+    public static void setRoundedPhotoByUser(final Context context, final ImageView imageView, final User user) {
+        if (user.getPhotoPath() == null) {
+            final Bitmap bitmap = createLetterBitmap(context, user.getName().substring(0, 1));
+            imageView.setImageDrawable(createRoundedBitmap(context.getResources(), bitmap));
+        } else {
+            imageView.setImageDrawable(createRoundedBitmap(context.getResources(), R.drawable.photo01));
+        }
     }
 }

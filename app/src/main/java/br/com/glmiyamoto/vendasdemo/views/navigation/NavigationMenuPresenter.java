@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import br.com.glmiyamoto.vendasdemo.R;
 import br.com.glmiyamoto.vendasdemo.enums.EMenuItem;
+import br.com.glmiyamoto.vendasdemo.model.User;
 import br.com.glmiyamoto.vendasdemo.utils.ImageUtil;
 
 /**
@@ -30,23 +31,34 @@ public class NavigationMenuPresenter {
         public void onItemClick(final AdapterView<?> parent, final View view,
                                 final int position, final long id) {
             if (mListener != null) {
+                // Callback the selected menu item
                 final EMenuItem selectedItem = mAdapter.getItem(position);
                 mListener.OnNavigationMenuItemClick(selectedItem);
             }
         }
     };
 
-    public NavigationMenuPresenter(final Context context, final NavigationView view) {
+    public NavigationMenuPresenter(final Context context, final NavigationView view, final User user) {
         final ViewHolder mHolder = new ViewHolder(view);
 
+        // Set user photo (Background)
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
             final Bitmap bitmap = ImageUtil.createBluredBitmap(context, BitmapFactory.decodeResource(context.getResources(), R.drawable.photo01));
             mHolder.mHeaderView.setBackground(new BitmapDrawable(context.getResources(), bitmap));
         } else {
             mHolder.mHeaderView.setBackgroundResource(R.drawable.photo01);
         }
-        mHolder.mUserPhotoView.setImageDrawable(ImageUtil.createRoundedBitmap(context.getResources(), R.drawable.photo01));
 
+        // Set user photo
+        ImageUtil.setRoundedPhotoByUser(context, mHolder.mUserPhotoView, user);
+
+        // Set the user name
+        mHolder.mUserNameView.setText(user.getName());
+
+        // Set the user e-mail
+        mHolder.mUserEMailView.setText(user.getEMail());
+
+        // Set the navigation menu item list
         mAdapter = new NavigationMenuListAdapter(context);
         mHolder.mMenuListView.setAdapter(mAdapter);
         mHolder.mMenuListView.setOnItemClickListener(mOnItemClickListener);

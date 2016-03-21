@@ -4,11 +4,8 @@ import android.app.Activity;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,7 +15,6 @@ import br.com.glmiyamoto.vendasdemo.controllers.UserController;
 import br.com.glmiyamoto.vendasdemo.enums.EFragmentType;
 import br.com.glmiyamoto.vendasdemo.model.User;
 import br.com.glmiyamoto.vendasdemo.views.navigation.NavigationMenuPresenter;
-import br.com.glmiyamoto.vendasdemo.views.navigation.OnNavigationMenuItemClickListener;
 
 /**
  * Created by Gustavo on 2016/03/20.
@@ -32,7 +28,7 @@ public class MainActivityPresenter {
     private final ViewHolder mHolder;
     private final User mUser;
 
-    public MainActivityPresenter(final MainActivity activity, final OnNavigationMenuItemClickListener navMenuItemClickListener) {
+    public MainActivityPresenter(final MainActivity activity, final NavigationMenuPresenter.OnNavigationMenuItemClickListener navMenuItemClickListener) {
         mActivity = activity;
         mHolder = new ViewHolder(mActivity);
         mUser = UserController.getInstance().getAppUser();

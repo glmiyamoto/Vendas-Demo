@@ -29,6 +29,12 @@ public final class ImageUtil {
         // Avoid intance
     }
 
+    /**
+     * Create a bitmap with blur effect
+     * @param context
+     * @param image
+     * @return
+     */
     public static Bitmap createBlurredBitmap(final Context context, final Bitmap image) {
         final int width = Math.round(image.getWidth() * BLUR_BITMAP_SCALE);
         final int height = Math.round(image.getHeight() * BLUR_BITMAP_SCALE);
@@ -48,6 +54,12 @@ public final class ImageUtil {
         return outputBitmap;
     }
 
+    /**
+     * Create a bitmap with Letter in the center
+     * @param context
+     * @param name
+     * @return
+     */
     public static Bitmap createLetterBitmap(final Context context, final String name) {
         final int width = (int) Util.dpToPx(context, 129);
         final int height = (int) Util.dpToPx(context, 129);
@@ -72,11 +84,23 @@ public final class ImageUtil {
         return dst;
     }
 
+    /**
+     * Create rounded bitmap
+     * @param res
+     * @param imageId
+     * @return
+     */
     public static Drawable createRoundedBitmap(final Resources res, final int imageId) {
         final Bitmap src = BitmapFactory.decodeResource(res, imageId);
         return createRoundedBitmap(res, src);
     }
 
+    /**
+     * Create rounded bitmap
+     * @param res
+     * @param src
+     * @return
+     */
     public static Drawable createRoundedBitmap(final Resources res, final Bitmap src) {
         final Bitmap dst;
 
@@ -93,6 +117,12 @@ public final class ImageUtil {
         return roundedBitmapDrawable;
     }
 
+    /**
+     * Set rounded bitmap of user photo to the ImageView
+     * @param context
+     * @param imageView
+     * @param user
+     */
     public static void setRoundedPhotoByUser(final Context context, final ImageView imageView, final User user) {
         if (user.getPhotoPath() == null) {
             final Bitmap bitmap = createLetterBitmap(context, user.getName().substring(0, 1));

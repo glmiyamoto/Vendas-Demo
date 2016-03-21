@@ -32,6 +32,10 @@ public final class UserController {
         // Avoid instance
     }
 
+    /**
+     * Return application user information
+     * @return
+     */
     public User getAppUser() {
         final User user = getUserById(1);
         user.setBalance(2562.29f);
@@ -40,10 +44,19 @@ public final class UserController {
         return user;
     }
 
+    /**
+     * Return user information by user ID
+     * @param id
+     * @return
+     */
     public User getUserById(final int id) {
         return getUsers().get(id - 1);
     }
 
+    /**
+     * Return all registered user
+     * @return
+     */
     public List<User> getUsers() {
         int id = 1;
         return Arrays.asList(new User[]{

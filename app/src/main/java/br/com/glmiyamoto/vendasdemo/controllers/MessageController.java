@@ -26,6 +26,10 @@ public class MessageController {
         // Avoid instance
     }
 
+    /**
+     * Return all registered messages
+     * @return
+     */
     public List<Message> getMessages() {
         final UserController userCtrl = UserController.getInstance();
         int id = 1;

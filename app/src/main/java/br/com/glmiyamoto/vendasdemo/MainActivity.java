@@ -12,7 +12,6 @@ import br.com.glmiyamoto.vendasdemo.views.IFragment;
 import br.com.glmiyamoto.vendasdemo.views.IFragmentListener;
 import br.com.glmiyamoto.vendasdemo.views.main.MainActivityPresenter;
 import br.com.glmiyamoto.vendasdemo.views.messages.MessagesFragment;
-import br.com.glmiyamoto.vendasdemo.views.navigation.OnNavigationMenuItemClickListener;
 
 public class MainActivity extends AppCompatActivity implements IFragmentListener {
 

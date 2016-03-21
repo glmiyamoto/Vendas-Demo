@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Gustavo-VAIO on 2016/03/15.
+ * Created by Gustavo on 2016/03/15.
  */
 public class ColorGenerator {
     public static ColorGenerator DEFAULT;
@@ -68,10 +68,19 @@ public class ColorGenerator {
         mRandom = new Random(System.currentTimeMillis());
     }
 
+    /**
+     * Return color randomly
+     * @return
+     */
     public int getRandomColor() {
         return mColors.get(mRandom.nextInt(mColors.size()));
     }
 
+    /**
+     * Return color by key
+     * @param key
+     * @return
+     */
     public int getColor(Object key) {
         return mColors.get(Math.abs(key.hashCode()) % mColors.size());
     }

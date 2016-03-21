@@ -28,6 +28,10 @@ public class SalesController {
         // Avoid instance
     }
 
+    /**
+     * Return all registered sales item
+     * @return
+     */
     public List<Item> getSales() {
         int id = 1;
         return Arrays.asList(new Item[]{
@@ -49,6 +53,10 @@ public class SalesController {
         });
     }
 
+    /**
+     * Generate sales item name randomly
+     * @return
+     */
     private String randomName() {
         final List<String> names = Arrays.asList(new String[] {
                 "Como decorar uma festa infantil maravilhosa com muitas cores variadas para alegrar e animar as criaças.",
@@ -61,8 +69,10 @@ public class SalesController {
         return names.get(random.nextInt(names.size()));
     }
 
-
-
+    /**
+     * Generate sales item value randomly
+     * @return
+     */
     private float randomValue() {
         final Random random = new Random();
         return random.nextInt(10000) + 1000;
